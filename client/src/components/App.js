@@ -1,5 +1,5 @@
 
-import "../App.css";
+import "../../src/tailwind.output.css";
 import Form from "./form"
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import CurrentForecast from "./update-forecast"
@@ -9,7 +9,7 @@ import WeatherDisplay from "./weather-display";
 function App() {
   return (
     <Router>
-    <h1>Express Weather</h1>
+    <h1 className="text-6xl text-blue-700 text-center leading-tight">Express Weather</h1>
     <Link to ="/">Homepage</Link>
         <Switch>
 
