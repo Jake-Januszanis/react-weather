@@ -8,6 +8,10 @@ module.exports = {
       'public/**/*.html',
     ],
     theme: {
+      screens: {
+      'sm': '640px',
+      'md': '768px'
+      },
       extend: {},
     },
     variants: {},
