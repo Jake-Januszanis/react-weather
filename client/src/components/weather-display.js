@@ -4,6 +4,7 @@ import Button from "./button";
 const WeatherDisplay = (props) => {
     
     console.log(props.weather)
+    if (props.weather.dataLoaded == true){
     return(
         <div className="weather-display text-center">
         <form className="flex justify-center items-center" method="POST" action="/">
@@ -20,8 +21,11 @@ const WeatherDisplay = (props) => {
         <h5 className="font-semibold"><span className="font-bold">Wind:</span> {props.weather.wind} mph</h5>
         </div>
         </div>
-        
     )
-}
+} else {
+    return(
+        <h1>Loading...please wait</h1>
+    )
+}}
 
 export default WeatherDisplay;

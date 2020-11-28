@@ -7,7 +7,8 @@ function CurrentForecast () {
         name: '',
         description: '',
         humidity: '',
-        wind: ''
+        wind: '',
+        dataLoaded: false
     }) 
 
     const callBackendAPI = async() => {
@@ -26,7 +27,9 @@ function CurrentForecast () {
                     name: res.name,
                     description: res.weather[0].description,
                     humidity: res.main.humidity,
-                    wind: res.wind.speed
+                    wind: res.wind.speed,
+                    dataLoaded: true
+
                 }))
                 .catch(error => console.log(error));
                 }, [])
