@@ -19,10 +19,11 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
   });
-  
+
 })
 app.get('/', (req, res) => {
-    res.send("Server is running")
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    // res.send("Server is running")
 }) 
 let zipcode;
 
