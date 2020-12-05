@@ -11,6 +11,7 @@ function CurrentForecast () {
         dataLoaded: false
     }) 
 
+    
     const callBackendAPI = async() => {
         const response = await fetch('/current-forecast');
         const body = await response.json();

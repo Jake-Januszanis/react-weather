@@ -14,16 +14,22 @@ const apiKey = process.env.API_KEY
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`)
     
+app.use(express.static(path.join(__dirname, 'client/build')));   
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  });
+  
 })
 app.get('/', (req, res) => {
     res.send("Server is running")
 }) 
 let zipcode;
 
-app.post('/', urlencodedParser, (req, res) => {
+app.post('/server.js', urlencodedParser, (req, res) => {
     zipcode = req.body.zipcode;
     if(zipcode.length === 5) {
-        res.redirect('/current-forecast')
+        res.redirect("/current-forecast")
     } else {
         res.redirect('/error')
     }
