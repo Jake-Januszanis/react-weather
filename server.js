@@ -16,7 +16,7 @@ app.listen(port, () => {
     
 })
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client', 'src', 'components', 'app.js'))
+    res.send("Server is running")
 }) 
 let zipcode;
 
