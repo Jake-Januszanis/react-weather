@@ -2,6 +2,7 @@ const express = require("express");
 const app = express(); 
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const path = require('path');
 const urlencodedParser = bodyParser.urlencoded({extended:false});
 const fetch = require("node-fetch");
 
@@ -15,7 +16,7 @@ app.listen(port, () => {
     
 })
 app.get('/', (req, res) => {
-    res.send('Server is running')
+    res.sendFile(path.join(__dirname, '../client', 'src', 'components', 'app.js'))
 }) 
 let zipcode;
 
