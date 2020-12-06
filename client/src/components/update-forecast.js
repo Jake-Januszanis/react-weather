@@ -13,7 +13,7 @@ function CurrentForecast () {
 
     
     const callBackendAPI = async() => {
-        const response = await fetch('/current-forecast');
+        const response = await fetch('/api-weather');
         const body = await response.json();
         if(body.status !== 200) {
           console.log(body.message)
