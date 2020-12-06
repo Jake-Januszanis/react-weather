@@ -23,12 +23,12 @@ function CurrentForecast () {
     }
         useEffect(()=> {
             callBackendAPI()
-                .then(res => setState({
-                    temp: res.main.temp,
-                    name: res.name,
-                    description: res.weather[0].description,
-                    humidity: res.main.humidity,
-                    wind: res.wind.speed,
+                .then(response => setState({
+                    temp: response.main.temp,
+                    name: response.name,
+                    description: response.weather[0].description,
+                    humidity: response.main.humidity,
+                    wind: response.wind.speed,
                     dataLoaded: true
 
                 }))

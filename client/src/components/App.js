@@ -18,7 +18,7 @@ function App() {
 
         <Switch>
         <Route exact path="/current-forecast">
-            <WeatherDisplay />
+            <CurrentForecast />
         </Route>
         
             <Route exact path="/">
