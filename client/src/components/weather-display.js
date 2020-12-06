@@ -24,7 +24,7 @@ const WeatherDisplay = (props) => {
     )
 } else {
     return(
-        <h1>Loading...please wait</h1>
+        <h1>Loading....please wait</h1>
     )
 }}
 
