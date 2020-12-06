@@ -10,9 +10,11 @@ import WeatherDisplay from "./weather-display";
 
 function App() {
   return (
+    <div>
+    <h1 className="text-6xl text-blue-700 text-center italic mb-6">Express Weather</h1>
     <Router>
 
-    <h1 className="text-6xl text-blue-700 text-center italic mb-6">Express Weather</h1>
+    
 
         <Switch>
         <Route exact path="/current-forecast">
@@ -35,6 +37,7 @@ function App() {
         <Link to ="/"><h1 className="text-4xl text-center bg-gray-200">Home</h1></Link>
         <span></span>
     </Router>
+    </div>
 
   );
 }
