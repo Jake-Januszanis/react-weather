@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from "./button";
+import Error from "./error"
 
 const WeatherDisplay = (props) => {
     
@@ -24,7 +25,7 @@ const WeatherDisplay = (props) => {
     )
 } else {
     return(
-        <h1>Loading....please wait</h1>
+        <Error />
     )
 }}
 

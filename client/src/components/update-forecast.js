@@ -18,7 +18,7 @@ function CurrentForecast () {
         if(body.status !== 200) {
           console.log(body.message)
         }
-        console.log(`City: ${body.name}, Temp: ${body.main.temp}, Wind:${body.wind.speed}`)
+        console.log(`City: ${body.name}`)
         return body;
     }
         useEffect(()=> {
