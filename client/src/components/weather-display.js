@@ -2,10 +2,11 @@ import React from 'react';
 import Button from "./button";
 import Error from "./error"
 
-const WeatherDisplay = (props) => {
+
+const WeatherDisplay = ({weather}) => {
     
-    console.log(props.weather)
-    if (props.weather.dataLoaded === true) {
+    console.log(weather.dataLoaded)
+    if (weather.dataLoaded === true) {
     return(
         <div className="weather-display text-center">
         <form className="flex justify-center items-center" method="POST" action="server.js">
@@ -15,11 +16,11 @@ const WeatherDisplay = (props) => {
         <div className="weather-display-container text-center text-gray-700 flex-col justify-around mb-40 mt-5">
         
         <h1 className="text-2xl font-semibold mb-1">Current Weather: </h1>
-        <h1 className="text-xl font-medium mb-1">{props.weather.name}</h1>
-        <h2 className="text-6xl font-bold">{Math.round(props.weather.temp)}&#176;F</h2>
-        <h3 className="text-xl">{props.weather.description}</h3>
-        <h4 className="font-semibold"><span className="font-bold">Humidity:</span> {props.weather.humidity}%</h4>
-        <h5 className="font-semibold"><span className="font-bold">Wind:</span> {props.weather.wind} mph</h5>
+        <h1 className="text-xl font-medium mb-1">{weather.name}</h1>
+        <h2 className="text-6xl font-bold">{Math.round(weather.temp)}&#176;F</h2>
+        <h3 className="text-xl">{weather.description}</h3>
+        <h4 className="font-semibold"><span className="font-bold">Humidity:</span> {weather.humidity}%</h4>
+        <h5 className="font-semibold"><span className="font-bold">Wind:</span> {weather.wind} mph</h5>
         </div>
         </div>
     )
