@@ -9,6 +9,8 @@ const fetch = require("node-fetch");
 
 const port = process.env.PORT
 const apiKey = process.env.API_KEY
+
+
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`)
     
@@ -39,4 +41,16 @@ app.get('/api-weather', (req, res) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=${apiKey}&units=imperial`)
     .then(res => res.json())
     .then(data => res.send(data))
+})
+
+app.get('/extended-forecast/:lat/:long', urlencodedParser, (req, res) => {
+    console.log(req.params.lat)
+    console.log(req.params.long)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${req.params.lat}&lon=${req.params.long}&exclude=minutely,hourly&appid=${apiKey}`)
+    .then(res => res.json())
+    .then(data => res.send(data))
+})
+
+app.post('/fetch-forecast', urlencodedParser, (req, res) => {
+    res.redirect("/fetch-forecast")
 })
