@@ -5,8 +5,6 @@ import Error from './error';
 
 
 const FetchForecast = ({latitude, longitude}) => {
-    console.log(longitude)
-    console.log(latitude)
     const [state, updateState] = useState({
         isDataLoaded: false,
         latitude: latitude,

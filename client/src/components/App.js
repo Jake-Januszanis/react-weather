@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+
 import "../../src/tailwind.output.css";
 import Form from "./form"
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";

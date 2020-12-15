@@ -1,39 +1,29 @@
 import React from "react";
+import FiveDayDisplay from "./fiveDayDisplay";
 
 
 const ExtendedDisplay = ({day}) => {
+return (
+    day.slice(1,6).map(daily => {
+        return <FiveDayDisplay key={daily.dt} days={daily} />
+    })
+)
+const unixArr = day.map(eachDay => eachDay.dt);
 
-// const arr = [1607972400, 1608058800, 1608145200, 1608231600, 1608318000];
-const arr = day.map(eachDay => eachDay.dt);
+// const convertDate = unixArr.map(myFunction);
 
-const convertDate = arr.map(myFunction);
-
-function myFunction(date){
-  let newTime = new Date(date * 1000)
-  const options = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  // timeZoneName: 'long'
-};
-  
-console.log(newTime.toLocaleDateString('en-CA', options));
+// function myFunction(date){
+//   let newTime = new Date(date * 1000)
+//   const options = {
+//   weekday: 'long',
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+//   // timeZoneName: 'long'
+// };
+// const timeStamp = newTime.toLocaleDateString('en-CA', options)
+// console.log(timeStamp);
 }
 
-
-
-
-    return(
-        <div>
-            <h1>ExtendedDisplay Component</h1>
-            <p>{day[0].dt}</p>
-            <p>{day[1].dt}</p>
-            <p>{day[2].dt}</p>
-            <p>{day[3].dt}</p>
-            <p>{day[4].dt}</p>
-        </div>
-    )
-}
 
 export default ExtendedDisplay;
