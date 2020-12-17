@@ -18,11 +18,11 @@ return newTime.toLocaleDateString('en-CA', options);
     return(
         <>  
         <div className="flex align-center justify-center">
-            <div className="grid grid-cols-2 w-5/6 max-w-lg border-solid border-2 border-black mb-8 gap-2 justify-items-center content-center">
+            <div className="grid grid-cols-2 w-5/6 max-w-lg border-solid border-2 border-black shadow-xl rounded mb-8 gap-2 bg-gray-300 justify-items-center content-center">
 
                 {/* //CARD TITLE AKA THE DATE */}
                 <div className="grid text-center col-span-2">
-                    <h2 className="text-xl font-medium pb-4 border-b-4 border-dotted border-black">{myFunction(days.dt)}</h2>
+                    <h2 className="text-2xl font-medium pb-4 border-b-4 border-dotted border-black pt-2">{myFunction(days.dt)}</h2>
                 </div>
                 
                 {/* Bottom left half of card */}

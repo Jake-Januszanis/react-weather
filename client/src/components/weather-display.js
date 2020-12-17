@@ -28,7 +28,7 @@ const WeatherDisplay = ({weather}) => {
         <div className="weather-display-container text-center text-gray-700 flex-col justify-around mb-10 mt-5 pb-6">
         
         <h1 className="text-2xl font-semibold mb-1">Current Weather: </h1>
-        <h1>{myFunction(weather.timestamp)}</h1>
+        <h1 className="font-medium">{myFunction(weather.timestamp)}</h1>
         <h1 className="text-xl font-medium mb-1">{weather.name}</h1>
         <h2 className="text-6xl font-bold">{Math.round(weather.temp)}&#176;F</h2>
         <h3 className="text-xl">{weather.description}</h3>
