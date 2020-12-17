@@ -4,7 +4,7 @@ import Form from "./form"
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import CurrentForecast from "./current-forecast"
 import Error from "./error"
-import WeatherDisplay from "./weather-display";
+import Footer from './footer'
 import FetchForecast from './fetch-forecast';
 
 
@@ -35,9 +35,8 @@ function App() {
             </Route>
 
         </Switch>
-        <Link to ="/"><h1 className="text-4xl text-center bg-gray-200">Home</h1></Link>
-        <span></span>
     </Router>
+    <Footer />
     </div>
 
   );
