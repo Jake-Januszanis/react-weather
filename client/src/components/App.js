@@ -1,7 +1,7 @@
 
 import "../../src/tailwind.output.css";
 import Form from "./form"
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import CurrentForecast from "./current-forecast"
 import Error from "./error"
 import Footer from './footer'
