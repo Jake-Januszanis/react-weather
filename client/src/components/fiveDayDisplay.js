@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './icon'
 
 
 const FiveDayDisplay = ({days}) => {
@@ -28,7 +29,7 @@ return newTime.toLocaleDateString('en-CA', options);
                 {/* Bottom left half of card */}
                 <div className="grid col-start-1">
                     <h1 className="text-5xl font-bold">{Math.round(days.temp.max)}&#176;F</h1>
-                    <h2>Icon: {days.weather[0].icon}</h2>
+                    <h2><Icon weatherIcon={days.weather[0].icon} /></h2>
                     <h2>{days.weather[0].description}</h2>
                 </div>
 

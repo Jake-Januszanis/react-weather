@@ -34,7 +34,8 @@ function CurrentForecast () {
                     dataLoaded: true,
                     long: response.coord.lon,
                     lat: response.coord.lat,
-                    timestamp: response.dt
+                    timestamp: response.dt,
+                    icon: response.weather[0].icon
                 }))
                 .catch(error => console.log(error));
                 }, [])

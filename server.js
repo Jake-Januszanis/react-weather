@@ -44,8 +44,6 @@ app.get('/api-weather', (req, res) => {
 })
 
 app.get('/extended-forecast/:lat/:long', urlencodedParser, (req, res) => {
-    console.log(req.params.lat)
-    console.log(req.params.long)
     fetch(`https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${req.params.lat}&lon=${req.params.long}&exclude=minutely,hourly&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => res.send(data))
