@@ -25,10 +25,10 @@ return newTime.toLocaleDateString('en-CA', options);
                 </div>
                 
                 {/* Bottom left half of card */}
-                <div className="grid col-start-1">
-                    <h1 className="text-5xl font-semibold text-center">{Math.round(days.temp.max)}&#176;F</h1>
+                <div className="grid col-start-1 text-center content-evenly">
+                    {/* <h1 className="text-5xl font-semibold">{Math.round(days.temp.max)}&#176;F</h1> */}
                     <h2><Icon weatherIcon={days.weather[0].icon} /></h2>
-                    <h2 className="text-center text-xl">{days.weather[0].description}</h2>
+                    <h2 className="text-xl">{days.weather[0].description}</h2>
                 </div>
 
                 {/* Bottom right half of card */}
