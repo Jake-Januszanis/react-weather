@@ -13,7 +13,6 @@ function App() {
   return (
     <div>
     
-    <h1 className="text-6xl text-blue-700 text-center italic mb-6">Express Weather</h1>
     <Router>
 
         <Switch>

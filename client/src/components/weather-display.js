@@ -5,37 +5,47 @@ import Icon from "./icon";
 
 
 const WeatherDisplay = ({weather}) => {
-
-    function myFunction(date){    //Function to convert unix timestamp to actual date.
+    
+    function dateConvert(date){    //Function to convert unix timestamp to actual date.
         let newTime = new Date(date * 1000)
         const options = {
         weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        // timeZoneName: 'long'
+        // year: 'numeric',
+        month: 'short',
+        day: 'numeric'
       };
       return newTime.toLocaleDateString('en-CA', options);
+      }
+      
+      function timeConvert(time){
+          let timeObj = new Date(time * 1000)
+          let hour = (timeObj.getHours() % 12);
+          let minute = timeObj.getMinutes();
+          return `${hour}:${minute}`
       }
     
 
     if (weather.dataLoaded === true) {
     return(
-        <div className="weather-display text-center">
-        <form className="flex justify-center items-center" method="POST" action="server.js">
-        <input className="inline w-2/3 h-8 block pl-2 mb-4 ml-8 sm:text-sm border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:border-blue-300 max-w-lg" type='number' name='zipcode' placeholder="Enter new zipcode..." required></input>
+        <div className="h-screen">
         <Button />
-        </form>
-        <div className="weather-display-container text-center text-gray-700 flex-col justify-around mb-6 mt-5 pb-6">
-        
-        <h1 className="text-2xl font-semibold mb-1">Current Weather: </h1>
-        <h1 className="font-medium">{myFunction(weather.timestamp)}</h1>
-        <h1 className="text-xl font-medium mb-1">{weather.name}</h1>
-        <h2 className="text-6xl font-bold">{Math.round(weather.temp)}&#176;F</h2>
+        <div className="relative h-5/6 rounded-xl text-center bg-blue-400 text-gray-50 justify-around mr-6 ml-6 mt-5">
+        <h1 className="text-2xl font-medium mb-1 pt-10 pb-2">{weather.name}</h1>
+        <h1 className="pb-6">{dateConvert(weather.timestamp)}</h1>
         <Icon weatherIcon={weather.icon}/>
+        <h2 className="text-6xl font-bold pt-2 pb-2">{Math.round(weather.temp)}&#176;F</h2>
         <h3 className="text-xl">{weather.description}</h3>
-        <h4 className="font-semibold"><span className="font-bold">Humidity:</span> {weather.humidity}%</h4>
-        <h5 className="font-semibold"><span className="font-bold">Wind:</span> {Math.round(weather.wind)} mph</h5>
+       
+
+        {/* //Bottom half of display card && grid  */}
+
+        <div className="h-2/6 rounded-xl absolute bottom-0 w-full grid grid-cols-2 grid-rows-2 border-2 border-solid">
+
+        <h4 className="text-xl font-thin border-r-2 border-solid"><span className="block font-bold">Humidity:</span> {weather.humidity}%</h4>
+        <h4 className="text-xl font-thin"><span className="block font-bold">Wind:</span> {Math.round(weather.wind)} mph</h4>
+        <h4 className="text-xl font-thin border-r-2 border-t-2 border-solid"><span className="block font-bold">Sunrise: </span>{timeConvert(weather.sunrise)}am</h4>
+        <h4 className="text-xl font-thin border-t-2 border-solid"><span className="block font-bold">Sunset: </span>{timeConvert(weather.sunset)}pm</h4>
+        </div>
         </div>
         </div>
     )

@@ -15,7 +15,11 @@ module.exports = {
       'xl': '1280px',
       '2xl': '1536px'
       },
-      extend: {},
+      extend: {
+        backgroundImage: theme => ({
+          'bg-main': "url('./src/images/weather-bg.jpg')"
+        })
+      },
     },
     variants: {},
     plugins: [],

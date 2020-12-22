@@ -24,7 +24,7 @@ function CurrentForecast () {
     }
 
         useEffect(()=> {
-            callBackendAPI()
+            callBackendAPI() 
                 .then(response => setState({
                     temp: response.main.temp,
                     name: response.name,
@@ -35,7 +35,9 @@ function CurrentForecast () {
                     long: response.coord.lon,
                     lat: response.coord.lat,
                     timestamp: response.dt,
-                    icon: response.weather[0].icon
+                    icon: response.weather[0].icon,
+                    sunrise: response.sys.sunrise,
+                    sunset: response.sys.sunset
                 }))
                 .catch(error => console.log(error));
                 }, [])
@@ -50,7 +52,7 @@ function CurrentForecast () {
        
     return(
         <div>
-            {state.dataLoaded === true ? <WeatherDisplay weather={state}/> : <h1 className="text-center">...loading please wait</h1>}
+            {state.dataLoaded === true ? <WeatherDisplay weather={state}/> : <h1 className="animate-spin text-center text-xl">...</h1>}
             {extend.extend === true ? <FetchForecast latitude={state.lat} longitude={state.long}/> : null}
             <div className="flex align-center justify-center">
             {extend.extend === false ? <button className="w-auto h-8 mb-4 ml-2 pl-4 pr-4 text-white block shadow-md rounded-2xl bg-blue-500 hover:bg-blue-700" onClick={handleClick}>Extended forecast</button> : null}

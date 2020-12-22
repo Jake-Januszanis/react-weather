@@ -8,7 +8,7 @@
 
     return (
         <div>
-        <div className="text-center bg-gray-200">
+        <div className="text-center">
         <a href="/" title="Home"><img className="inline-block"src={homeIcon}></img></a>
         <a href="https://github.com/Jake-Januszanis/react-weather" target="_blank" title="Github Repo"><img className="inline-block"src={gitIcon}></img></a>
         </div>
