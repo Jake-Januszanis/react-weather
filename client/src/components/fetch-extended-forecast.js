@@ -1,10 +1,8 @@
 
 import React, { useState, useEffect} from "react";
-import ExtendedDisplay from "./extended-display";
-import Error from './error';
+import ExtendedForecast from "./extended-forecast";
 
-
-const FetchForecast = ({latitude, longitude}) => {
+const FetchExtForecast = ({latitude, longitude}) => {
     const [state, updateState] = useState({
         isDataLoaded: false,
         latitude: latitude,
@@ -27,10 +25,9 @@ const FetchForecast = ({latitude, longitude}) => {
 
         return(
             <div>
-            {state.isDataLoaded === true ? <ExtendedDisplay day={state.data}/> : <h1>Loading please wait...</h1>}
-            {/* { state.isDataLoaded === true ? <ExtendedDisplay props={state} /> : <Error /> } */}
+            {state.isDataLoaded === true ? <ExtendedForecast day={state.data}/> : <h1>Loading please wait...</h1>}
             </div>
         )
 }
 
-export default FetchForecast;
+export default FetchExtForecast;

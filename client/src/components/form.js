@@ -3,15 +3,13 @@ import React from 'react';
 import bgImg from "../images/weather-bg.jpg";
 
 
-
+// App homepage 
 function Form () {
 
     const styles = {
         Image: `url(${bgImg})`,
         Position: "center",
-        cover: "cover",
-        height: "950px",
-        width: 'auto'
+        cover: "cover"
     };
 
     return(
@@ -28,4 +26,3 @@ function Form () {
 
 export default Form;
 
-// bg-gradient-to-r from-blue-700 via-blue-300 to-blue-100

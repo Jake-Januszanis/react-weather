@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import ExtendButton from "./extend-forecast-button";
-import FetchForecast from "./fetch-forecast";
-import WeatherDisplay from "./weather-display";
+import CurrentForecastDisplay from "./current-forecast-display";
+import WeatherDisplay from "./current-forecast-display";
 
 
 function CurrentForecast () {
-    const [state, setState] = useState({
+
+    const [weatherData, setState] = useState({
        dataLoaded: false,
        temp:'',
         name: '',
@@ -16,13 +16,8 @@ function CurrentForecast () {
         lat: '',
         timestamp: ''
     })
-    const [extend, updateExtend] = useState({
-        extend: false
-    }) 
-    function handleClick() {
-        updateExtend({extend: true});
-    }
 
+    // Call function and update state with response from server
         useEffect(()=> {
             callBackendAPI() 
                 .then(response => setState({
@@ -42,6 +37,8 @@ function CurrentForecast () {
                 .catch(error => console.log(error));
                 }, [])
 
+
+        // function for getting weather data from weather api
         const callBackendAPI = async() => {
             const response = await fetch('/api-weather');
             const body = await response.json();
@@ -51,12 +48,8 @@ function CurrentForecast () {
                 }
        
     return(
-        <div>
-            {state.dataLoaded === true ? <WeatherDisplay weather={state}/> : <h1 className="animate-spin text-center text-xl">...</h1>}
-            {extend.extend === true ? <FetchForecast latitude={state.lat} longitude={state.long}/> : null}
-            <div className="flex align-center justify-center">
-            {extend.extend === false ? <button className="w-auto h-8 mb-4 ml-2 pl-4 pr-4 text-white block shadow-md rounded-2xl bg-blue-500 hover:bg-blue-700" onClick={handleClick}>Extended forecast</button> : null}
-            </div>
+        <div> 
+            {weatherData.dataLoaded === true ? <CurrentForecastDisplay weather={weatherData}/> : <h1 className="animate-spin text-center text-2xl">...</h1>}
         </div>
     )
 }
