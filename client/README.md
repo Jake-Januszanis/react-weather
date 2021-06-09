@@ -1,1 +1,0 @@
-This is a weather app built using React and Express. The app takes a 5 digit US zipcode and retrieves api data from the OpenWeatherMap api. Options to display single day or 5 day extended forecast are both available. 
