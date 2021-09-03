@@ -35,7 +35,6 @@ The main reason I decided to build this project was to simply practice working w
 The app is currently hosted on a Heroku server and will take some time to load but should not take more than a minute to start up. 
 
 https://react-weather-v2.herokuapp.com/
-
 ---
 # Demo
 
